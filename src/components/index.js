@@ -1,0 +1,1 @@
+export { default as TweeterFeed } from '../containers/TweeterFeed'

@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import { TweeterFeed, Nav } from './components';
 import './App.css';
+import { connect } from 'react-redux'
+import { Switch, Route} from 'react-router';
 
-function App() {
+function App(props) {
+  console.log(props)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <h1>🕊</h1>
+   <Nav/>
+   <Switch>
+     <Route path="/tweets"><TweeterFeed></TweeterFeed></Route>
+   </Switch>
+   </>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({user: state.user})
+
+export default connect(mapStateToProps)(App);
