@@ -10,4 +10,4 @@ function TweeterFeed(){
     </div>
 }
 
-export default connect(mapStateToProps)(TweeterFeed)
+export default connect()(TweeterFeed)

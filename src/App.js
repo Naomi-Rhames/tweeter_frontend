@@ -9,9 +9,12 @@ function App(props) {
    <>
    <h1>🕊</h1>
    <Nav/>
+   {props.user.username && props.user.email ?
    <Switch>
      <Route path="/tweets"><TweeterFeed></TweeterFeed></Route>
-   </Switch>
+   </Switch> :
+   <Auth/>
+   }
    </>
   );
 }
