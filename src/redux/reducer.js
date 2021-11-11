@@ -8,7 +8,8 @@ const initialState = {
  createdTweet: initialTweet,
  user: {
      email: "",
-     username: ""
+     username: "",
+     bio: ""
         
   }
 }
