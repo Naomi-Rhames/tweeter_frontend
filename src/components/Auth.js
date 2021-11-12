@@ -2,8 +2,8 @@ import {useState} from 'react'
 import { submitSignup, submitLogin } from  '../redux/actionCreators'
 import { connect } from 'react-redux' 
 
+
 function Auth(props){
-console.log(props)
     const [signup, setSignup] = useState(false)
     const [email, setEmail] = useState("")
     const [username, setUsername] = useState("")
@@ -13,14 +13,14 @@ console.log(props)
     const toggleSignup = () => setSignup(!signup)
 
     const handleSubmit = (e) => {
-        e.preventDeafualt()
+        e.preventDefault()
         signup ? props.submitSignup({ email, username, bio, password }) : props.submitLogin({ username, password })
     }
 
  
     return <>
     {signup ? <i><h2>Signup Page!</h2></i> : <i><h2>Login page!</h2></i>}
-    <form onsubmit={handleSubmit}> 
+    <form onSubmit={handleSubmit}> 
    {signup && <label>
        Email:
          <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/><br/>

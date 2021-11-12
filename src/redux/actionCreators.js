@@ -1,5 +1,5 @@
 export const submitSignup = (user) => {
-    return dispatch => fetch("http://localhost:3000/users",
+    return dispatch => fetch("http://127.0.0.1:3000/users",
     {method: 'POST', // or 'PUT'
     headers: {
     'Content-Type': 'application/json',
@@ -7,11 +7,11 @@ export const submitSignup = (user) => {
   body: JSON.stringify(user),
 }) 
 .then(res => res.json())
-.then(console.log)
+.then(user => dispatch({type: "SET_TWEETER_USER", payload: user}))
 }
 
 export const submitLogin = (user) => {
-    return dispatch => fetch("http://localhost:3000/sessions",
+    return dispatch => fetch("http://127.0.0.1:3000/sessions",
     {method: 'POST', // or 'PUT'
     headers: {
     'Content-Type': 'application/json',
@@ -19,5 +19,5 @@ export const submitLogin = (user) => {
   body: JSON.stringify(user),
 }) 
 .then(res => res.json())
-.then(console.log)
+.then(user => dispatch({type: "SET_TWEETER_USER", payload: user}))
 }
