@@ -2,14 +2,15 @@ import { TweeterFeed, Nav, Auth } from './components';
 import './App.css';
 import { connect } from 'react-redux'
 import { Switch, Route} from 'react-router';
-// import { useEffect } from 'react'
+import { autoLogin} from './redux/actionCreators'
+import { useEffect } from 'react'
 
-function App(props) {
-//  useEffect(() => localStorage.token &&)
+function App({user, autoLogin}) {
+ useEffect(() => localStorage.token && autoLogin(), [autoLogin])
   return (
    <>
    <h1>🕊</h1>
-   {props.user.username && props.user.email ?
+   {user.username && user.email ?
    <Switch>
       <Nav/>
      <Route path="/tweets"><TweeterFeed></TweeterFeed></Route>
@@ -22,4 +23,4 @@ function App(props) {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { autoLogin })(App);
