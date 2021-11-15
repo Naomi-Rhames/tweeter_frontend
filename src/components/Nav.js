@@ -1,9 +1,13 @@
 import { NavLink } from 'react-router-dom'
+import { TweeterFeed } from '.';
+import { connect } from 'react-redux'
+import { fetchTweets } from '../redux/actionCreators'
 
 function Nav(){
     return <nav>
-        <NavLink to="tweets">See Tweets</NavLink>
+        <NavLink to="tweets">See Posts</NavLink>
+        <TweeterFeed/>
     </nav>
 }
 
-export default Nav;
+export default connect(null, { fetchTweets })(Nav);

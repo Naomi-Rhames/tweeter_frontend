@@ -1,13 +1,15 @@
 import{ connect } from 'react-redux'
+import React, { Component} from 'react';
+import { fetchTweets} from '../redux/actionCreators'
 
 
-
-
-function TweeterFeed(){
-
-    return <div className="cards">
-        <h2>This is where the Tweets go!</h2>
-    </div>
+class TweeterFeed extends Component {
+    render(){
+        return (
+            <div>
+                Tweets goes here
+            </div>
+        )
+    }
 }
-
-export default connect()(TweeterFeed)
+export default connect(null, { fetchTweets })(TweeterFeed)

@@ -1,3 +1,5 @@
+
+
 export const submitSignup = (user) => {
     return dispatch => fetch("http://127.0.0.1:3000/users",
     {method: 'POST', // or 'PUT'
@@ -39,4 +41,11 @@ export const autoLogin = () => {
     localStorage.token = response.token
     dispatch({type: "SET_TWEETER_USER", payload: response.user})
   })
+}
+
+export const fetchTweets = () => {
+  return dispatch => fetch("http://127.0.0.1:3000/tweets")
+  .then(res => res.json())
+  .then(tweets =>
+     console.log('fetchTweets', tweets))
 }
