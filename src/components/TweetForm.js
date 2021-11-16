@@ -5,9 +5,9 @@ import {addTweet} from '../redux/actionCreators'
 class TweetForm extends Component {
 
     state = {
-       imageUrl: '',
+       image_url: '',
        description: '' ,
-       userID: localStorage.token
+       user_id: localStorage.token
     }
 
     handleChange = e => {
