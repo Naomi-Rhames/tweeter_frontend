@@ -46,6 +46,20 @@ export const autoLogin = () => {
 export const fetchTweets = () => {
   return dispatch => fetch("http://127.0.0.1:3000/tweets")
   .then(res => res.json())
-  .then(tweets =>
-     console.log('fetchTweets', tweets))
+  .then(tweets => dispatch({ type: 'FETCH_TWEETS', payload: tweets.createdTweets}))
+    
+}
+
+export const addTweet= tweet => {
+  return dispatch => fetch("http://127.0.0.1:3000/tweets",
+  {method: 'POST', // or 'PUT'
+  headers: {
+  'Content-Type': 'application/json',
+},
+body: JSON.stringify(tweet),
+}) 
+.then(res => res.json())
+.then(tweets => {
+dispatch({type: "POST_TWEET", tweets})
+})
 }

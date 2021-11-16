@@ -1,7 +1,7 @@
 const initialTweet = {
     description: "",
-    image_url: "",
-}
+    image_url: ""
+};
 const initialState = {
     tweets: [],
     createdTweets: initialTweet,
@@ -9,7 +9,6 @@ const initialState = {
      email: "",
      username: "",
      bio: ""
-        
   }
 }
 
@@ -21,10 +20,13 @@ export  function reducer(state=initialState, action){
             return {...state}
     }
 }
-export const tweetsReducer = (state = [], action) => {
+
+export const tweetsReducer = (state =[], action) => {
     switch(action.type){
-        case "FETCH_TwEETS":
+        case 'FETCH_TwEETS':
         return action.payload
+        case 'POST_TWEET':
+            return [...state, action.payload]
         default:
             return state
     }
