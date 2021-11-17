@@ -1,39 +1,29 @@
-import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import { useState } from 'react'
 import {addTweet} from '../redux/actionCreators'
 
-class TweetForm extends Component {
+function TweetForm(){
 
-    state = {
-       image_url: '',
-       description: '' ,
-       user_id: localStorage.token
-    }
+   const [description, setDescription] = useState("")
+   const [imageUrl, setImage] = useState("")
 
-    handleChange = e => {
-        const { name, value } = e.target
-
-        this.setState({
-            [name]: value
-        })
-    }
-
-    handleSubmit = e => {
+  const onSubmit = e => {
         e.preventDefault()
-        this.props.addTweet(this.state)
+       const newTweet = {description, image_url: imageUrl}
+       console.log(newTweet)
     }
-    render() {
+
         return (
-            <form onSubmit={this.handleSubmit}>
-                <textarea type='text' value={this.state.description} onChange={this.handleChange} placeholder="What's happening?" name="description"></textarea>
+            <form className="new_tweet" onSubmit={onSubmit}>
+                <textarea type='text' value={description} onChange={(e) => setDescription(e.target.value)} placeholder="What's happening?" name="description"></textarea>
                 <br/>
                 <label>Add URL </label>
-                <input type="text" value={this.state.imageUrl} name="imageUrl" />
+                <input type="text" value={imageUrl} onChange={(e) => setImage(e.target.value)} name="imageUrl" />
                 <br/>
                 <input type="submit" value="Post Tweet" />
              </form>
         )
-    }
+    
 }
 
 

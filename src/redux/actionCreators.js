@@ -63,3 +63,10 @@ body: JSON.stringify(tweet),
 dispatch({type: "POST_TWEET", tweets})
 })
 }
+
+export const logout = () => {
+  return dispatch => {
+    localStorage.clear()
+    dispatch({type: "LOGOUT"})
+  }
+}

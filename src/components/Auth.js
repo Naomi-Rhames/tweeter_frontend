@@ -50,5 +50,6 @@ function Auth(props){
     </>
 }
 
+
 export default connect(null, {submitSignup, submitLogin})(Auth);
  

@@ -10,10 +10,10 @@ function App({user, autoLogin}) {
   return (
    <>
    <h1>🕊</h1>
+   <Nav/>
    {user.username && user.email ?
    <Switch>
-      <Nav/>
-     <Route path="/tweets"><TweeterFeed></TweeterFeed></Route>
+     <Route path="/tweets"><TweeterFeed/></Route>
    </Switch> :
    <Auth/>
    }

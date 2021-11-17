@@ -2,32 +2,25 @@ const initialTweet = {
     description: "",
     image_url: ""
 };
+const initialUser = {
+    username: "",
+    email: "",
+    bio: ""
+}
 const initialState = {
     tweets: [],
     createdTweets: initialTweet,
- user: {
-     email: "",
-     username: "",
-     bio: ""
-  }
+    user: initialUser
 }
 
-export  function reducer(state=initialState, action){
+export function reducer(state=initialState, action){
     switch(action.type){
         case "SET_TWEETER_USER":
         return{...state, user: action.payload}
+        case "LOGOUT":
+            return {...state, user: initialUser }
         default:
             return {...state}
     }
 }
 
-export const tweetsReducer = (state =[], action) => {
-    switch(action.type){
-        case 'FETCH_TwEETS':
-        return action.payload
-        case 'POST_TWEET':
-            return [...state, action.payload]
-        default:
-            return state
-    }
-}
