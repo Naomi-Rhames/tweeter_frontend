@@ -2,15 +2,15 @@ import {connect} from 'react-redux'
 import { useState } from 'react'
 import {addTweet} from '../redux/actionCreators'
 
-function TweetForm(){
-
+function TweetForm( {addTweet, user_id}){
+/// from not having a constuctor you have to use hooks
    const [description, setDescription] = useState("")
    const [imageUrl, setImage] = useState("")
 
   const onSubmit = e => {
         e.preventDefault()
-       const newTweet = {description, image_url: imageUrl}
-       console.log(newTweet)
+       const newTweet = {description, image_url: imageUrl, user_id} 
+      addTweet(newTweet) 
     }
 
         return (
@@ -27,4 +27,6 @@ function TweetForm(){
 }
 
 
-export default connect(null, {addTweet})(TweetForm);
+const mapToStateToProps = state => ({user_id: state.user.id})
+
+export default connect(mapToStateToProps, {addTweet})(TweetForm);

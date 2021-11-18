@@ -10,8 +10,8 @@ export const submitSignup = (user) => {
 }) 
 .then(res => res.json())
 .then(response => { 
-  localStorage.token = response.token
-  dispatch({type: "SET_TWEETER_USER", payload: response.user})
+  localStorage.token = response.token // token will be saved in local storage
+  dispatch({type: "SET_TWEETER_USER", payload: response.user}) // the user will be dispatched into the reducer
 })
 }
 
@@ -38,6 +38,7 @@ export const autoLogin = () => {
   })
   .then(res => res.json())
   .then(response => { 
+    console.log(response)
     localStorage.token = response.token
     dispatch({type: "SET_TWEETER_USER", payload: response.user})
   })
@@ -46,21 +47,23 @@ export const autoLogin = () => {
 export const fetchTweets = () => {
   return dispatch => fetch("http://127.0.0.1:3000/tweets")
   .then(res => res.json())
-  .then(tweets => dispatch({ type: 'FETCH_TWEETS', payload: tweets.createdTweets}))
+  .then(tweets => dispatch({ type: 'FETCH_TWEETS', payload: tweets}))
     
 }
 
 export const addTweet= tweet => {
+  console.log(tweet)
   return dispatch => fetch("http://127.0.0.1:3000/tweets",
   {method: 'POST', // or 'PUT'
   headers: {
   'Content-Type': 'application/json',
+  'Authorization': localStorage.token
 },
 body: JSON.stringify(tweet),
 }) 
 .then(res => res.json())
 .then(tweets => {
-dispatch({type: "POST_TWEET", tweets})
+dispatch({type: "POST_TWEET", payload: tweets})
 })
 }
 

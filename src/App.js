@@ -6,7 +6,7 @@ import { autoLogin} from './redux/actionCreators'
 import { useEffect } from 'react'
 
 function App({user, autoLogin}) {
- useEffect(() => localStorage.token && autoLogin(), [autoLogin])
+ useEffect(() => localStorage.token && autoLogin(), [autoLogin]) // when a componment thats mounting once the comoponet is loaded in the virtrial  dom
   return (
    <>
    <h1>🕊</h1>
