@@ -10,15 +10,15 @@ class TweeterFeed extends Component {
    componentDidMount(){
        this.props.fetchTweets()
    }
+  
     render(){
   
-    
         return (
             <div>
                 <br/>
               <TweetForm />
-              { this.props.tweets[0] ?
-               this.props.tweets[0].map((t) => <TweetShow description={t.description} image_url={t.image_url} />)
+              { this.props.tweets ?
+               this.props.tweets.map((t) => <TweetShow description={t.description} image_url={t.image_url} />)
                 :
                 <h2>loading....</h2>
               }

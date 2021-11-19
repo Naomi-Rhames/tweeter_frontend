@@ -1,3 +1,8 @@
+const initialComment = {
+    description: "",
+    id: null 
+}
+
 const initialTweet = {
     description: "",
     image_url: ""
@@ -11,7 +16,8 @@ const initialUser = {
 const initialState = {
     tweets: [],
     createdTweets: initialTweet,
-    user: initialUser
+    user: initialUser,
+    comments: initialComment
 }
 
 export function reducer(state=initialState, action){
@@ -21,9 +27,9 @@ export function reducer(state=initialState, action){
         case "LOGOUT":
             return {...state, user: initialUser }
          case "FETCH_TWEETS":
-            return {...state, tweets: [action.payload]}
+            return {...state, tweets: action.payload}
         case "POST_TWEET":
-            console.log(action.payload)
+            // debugger
              return{...state, createdTweets: initialTweet, tweets:[ action.payload, ...state.tweets]}
         default:
             return {...state}
