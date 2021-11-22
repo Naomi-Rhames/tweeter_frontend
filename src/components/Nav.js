@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 function Nav({logout, username}){
     return username ?
      <nav>
-        <NavLink to="tweets"><button>See Posts</button></NavLink>
+        <NavLink to="/tweets"><button>See Posts</button></NavLink>
         <button onClick={logout}>Logout</button>
     </nav>
     :

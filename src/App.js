@@ -1,4 +1,4 @@
-import { TweeterFeed, Nav, Auth } from './components';
+import { TweeterFeed, Nav, Auth, TweetCard } from './components';
 import './App.css';
 import { connect } from 'react-redux'
 import { Switch, Route} from 'react-router';
@@ -13,6 +13,7 @@ function App({user, autoLogin}) {
    <Nav/>
    {user.username && user.email ?
    <Switch>
+     <Route path="/tweets/:id"><TweetCard/></Route>
      <Route path="/tweets"><TweeterFeed/></Route>
    </Switch> :
    <Auth/>
