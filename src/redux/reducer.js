@@ -1,11 +1,9 @@
-const initialComment = {
-    description: "",
-    id: null 
-}
 
 const initialTweet = {
     description: "",
-    image_url: ""
+    image_url: "",
+    id: null,
+    comments: []
 };
 const initialUser = {
     username: "",
@@ -17,7 +15,6 @@ const initialState = {
     tweets: [],
     createdTweets: initialTweet,
     user: initialUser,
-    comments: initialComment
 }
 
 export function reducer(state=initialState, action){
@@ -28,8 +25,11 @@ export function reducer(state=initialState, action){
             return {...state, user: initialUser }
          case "FETCH_TWEETS":
             return {...state, tweets: action.payload}
+        case "FETCH_TWEET":
+            return {...state, createdTweets: action.payload }
+        case "CLEAR_TWEETS":
+            return {...state, createdTweets: initialTweet}
         case "POST_TWEET":
-            // debugger
              return{...state, createdTweets: initialTweet, tweets:[ action.payload, ...state.tweets]}
         default:
             return {...state}
