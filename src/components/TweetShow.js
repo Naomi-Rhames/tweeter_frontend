@@ -1,21 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
  const TweetShow = (props) => {
     console.log(props)
-    // debugger
+    
     
     return  (
         <div>
             <hr/>
-        {/* <br/> */}
+     <i><p>{props.username}</p></i>
         
-        <h3>{props.description}</h3>
+        <p>{props.description}</p>
         { props.image_url ? 
         <img src={props.image_url} alt=""></img>
         :
         null
      }
-        
+        <Link to={`/tweets/${props.id}`}><button value={props.id}>Comment</button></Link>
         </div>
 
     )

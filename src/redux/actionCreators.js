@@ -51,6 +51,14 @@ export const fetchTweets = () => {
     
 }
 
+export const fetchTweet = (id) => {
+  return dispatch => fetch(`http://127.0.0.1:3000/tweets/${id}`)
+  .then(res => res.json())
+  .then(tweet => dispatch({type: 'FETCH_TWEET', payload: tweet})
+  )}
+
+export const clearTweets = () => ({type: "CLEAR_TWEETS"})
+
 export const addTweet= tweet => {
   console.log(tweet)
   return dispatch => fetch("http://127.0.0.1:3000/tweets",

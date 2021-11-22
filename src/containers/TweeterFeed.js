@@ -12,13 +12,12 @@ class TweeterFeed extends Component {
    }
   
     render(){
-  
         return (
             <div>
                 <br/>
               <TweetForm />
               { this.props.tweets ?
-               this.props.tweets.map((t) => <TweetShow description={t.description} image_url={t.image_url} />)
+               this.props.tweets.map((t) => <TweetShow  username={t.username} description={t.description} image_url={t.image_url} id={t.id}/>)
                 :
                 <h2>loading....</h2>
               }
