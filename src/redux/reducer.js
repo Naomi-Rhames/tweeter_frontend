@@ -31,6 +31,8 @@ export function reducer(state=initialState, action){
             return {...state, createdTweets: initialTweet}
         case "POST_TWEET":
              return{...state, createdTweets: initialTweet, tweets:[ action.payload, ...state.tweets]}
+        case "ADD_COMMENT":
+            return {...state, createdTweets: {...state.createdTweets, comments:[action.payload, ...state.createdTweets.comments]}}
         default:
             return {...state}
     }

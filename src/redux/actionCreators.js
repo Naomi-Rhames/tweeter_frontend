@@ -60,7 +60,6 @@ export const fetchTweet = (id) => {
 export const clearTweets = () => ({type: "CLEAR_TWEETS"})
 
 export const addTweet= tweet => {
-  console.log(tweet)
   return dispatch => fetch("http://127.0.0.1:3000/tweets",
   {method: 'POST', // or 'PUT'
   headers: {
@@ -72,6 +71,22 @@ body: JSON.stringify(tweet),
 .then(res => res.json())
 .then(tweets => {
 dispatch({type: "POST_TWEET", payload: tweets})
+})
+}
+
+export const submitComment = ( comment, tweetId) => {
+  
+  return dispatch => fetch(`http://127.0.0.1:3000/${tweetId}/comments`,
+  {method: 'POST', // or 'PUT'
+  headers: {
+  'Content-Type': 'application/json',
+  'Authorization': localStorage.token
+},
+body: JSON.stringify(comment)
+}) 
+.then(res => res.json())
+.then(comment=> {
+  console.log(comment)
 })
 }
 
