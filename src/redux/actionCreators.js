@@ -8,11 +8,9 @@ export const submitSignup = (user) => {
   },
   body: JSON.stringify(user),
 }) 
-.then(res => res.json())
-.then(response => { 
-  localStorage.token = response.token // token will be saved in local storage
-  dispatch({type: "SET_TWEETER_USER", payload: response.user}) // the user will be dispatched into the reducer
-})
+ .then(res => handleUserResponse(res, dispatch))
+ // token will be saved in local storage
+  // the user will be dispatched into the reducer
 }
 
 export const submitLogin = (user) => {
@@ -23,12 +21,9 @@ export const submitLogin = (user) => {
   },
   body: JSON.stringify(user),
 }) 
-.then(res => res.json())
-.then(response => {
-  localStorage.token = response.token
-  dispatch({type: "SET_TWEETER_USER", payload: response.user})
-})
+.then(res => handleUserResponse(res, dispatch))
 }
+
 
 export const autoLogin = () => {
   return dispatch => fetch("http://localhost:3000/tweeter", {
@@ -36,13 +31,10 @@ export const autoLogin = () => {
       'Authorization': localStorage.token
     }
   })
-  .then(res => res.json())
-  .then(response => { 
-    console.log(response)
-    localStorage.token = response.token
-    dispatch({type: "SET_TWEETER_USER", payload: response.user})
-  })
+  .then(res => handleUserResponse(res, dispatch))
 }
+
+
 
 export const fetchTweets = () => {
   return dispatch => fetch("http://127.0.0.1:3000/tweets")
@@ -74,21 +66,27 @@ dispatch({type: "POST_TWEET", payload: tweets})
 })
 }
 
-export const submitComment = ( comment, tweetId) => {
-  
-  return dispatch => fetch(`http://127.0.0.1:3000/${tweetId}/comments`,
-  {method: 'POST', // or 'PUT'
+export const submitComment = (comment, tweetId) => {
+  return dispatch => fetch(`http://127.0.0.1:3000/tweets/${tweetId}/comments`, {
+  method: 'POST', // or 'PUT'
   headers: {
   'Content-Type': 'application/json',
   'Authorization': localStorage.token
 },
 body: JSON.stringify(comment)
 }) 
-.then(res => res.json())
-.then(comment=> {
-  console.log(comment)
+.then(res => res.json()) 
+.then(res => {
+  if (res.ok) {
+    res.json()
+    .then(comment => dispatch({type: "ADD_COMMENT", payload: comment}))
+  // } else {
+    // res.json()
+    // .then(res => alert(res.errors))
+  }
 })
 }
+
 
 export const logout = () => {
   return dispatch => {
@@ -96,3 +94,17 @@ export const logout = () => {
     dispatch({type: "LOGOUT"})
   }
 }
+
+function handleUserResponse(res, dispatch){
+  if (res.ok) {
+    res.json()
+    .then(response => {
+      localStorage.token = response.token
+      dispatch({type: "SET_TWEETER_USER", payload: response.user})
+    })
+  } else {
+    res.json()
+    .then(res => alert(res.errors))
+  }
+}
+

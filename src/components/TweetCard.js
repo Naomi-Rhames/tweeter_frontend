@@ -2,11 +2,13 @@ import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchTweet, clearTweets } from '../redux/actionCreators'
 import { useEffect } from 'react'
-import { CommentForm } from '.'
+import { CommentForm, Comments } from '.'
+// import { CommentCard } from '.'
 
 function TweetCard({fetchTweet, description, image_url, clearTweets, id}){
-    const routeId = useParams().id
 
+    const routeId = useParams().id
+    
     useEffect(()=> {
         fetchTweet(routeId)
         return clearTweets
@@ -24,6 +26,7 @@ function TweetCard({fetchTweet, description, image_url, clearTweets, id}){
      <br/>
      <br/>
      <CommentForm/>
+     <Comments/>
     </div>
 
     return id ? fetchedTweet() : loadedicon
@@ -31,7 +34,8 @@ function TweetCard({fetchTweet, description, image_url, clearTweets, id}){
 }
 
 const mapStateToProps = (state) => {
-    return {...state.createdTweets }
+    return {...state.setTweet}
 }
+ 
 
 export default connect(mapStateToProps, {fetchTweet, clearTweets})(TweetCard);

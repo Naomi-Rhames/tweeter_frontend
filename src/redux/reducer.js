@@ -13,7 +13,7 @@ const initialUser = {
 }
 const initialState = {
     tweets: [],
-    createdTweets: initialTweet,
+    setTweet: initialTweet,
     user: initialUser,
 }
 
@@ -24,17 +24,17 @@ export function reducer(state=initialState, action){
         case "LOGOUT":
             return {...state, user: initialUser }
          case "FETCH_TWEETS":
-            return {...state, tweets: action.payload}
+            return {...state, tweets: action.payload }
         case "FETCH_TWEET":
-            return {...state, createdTweets: action.payload }
+            return {...state, setTweet: action.payload }
         case "CLEAR_TWEETS":
-            return {...state, createdTweets: initialTweet}
+            return {...state, setTweet: initialTweet }
         case "POST_TWEET":
-             return{...state, createdTweets: initialTweet, tweets:[ action.payload, ...state.tweets]}
+             return{...state, setTweet: initialTweet, tweets:[ action.payload, ...state.tweets] }
         case "ADD_COMMENT":
-            return {...state, createdTweets: {...state.createdTweets, comments:[action.payload, ...state.createdTweets.comments]}}
+             return {...state, setTweet: initialTweet, comments: [action.payload, ...state.setTweet.comments] }
         default:
-            return {...state}
+            return {...state }
     }
 }
 

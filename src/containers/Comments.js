@@ -1,12 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { TweetCard } from '../components'
+import { CommentCard } from '../components'
 
-function Comments({comments}){
-    return  <div className="comments">
-        {comments.map(comment => <TweetCard {...comment} key={comment.id} />)}
+function Comments({tweets}){
+     console.log(tweets)
+
+    return  <div className="all_comments">
+        {tweets.map(comment => <CommentCard {...comment } key={comment.id} />)}
     </div>
     
 }
-const mapStateToProps = (state) => ({})
-export default connect()(Comments);
+const mapStateToProps = (state) => ({ tweets: state.setTweet.comments })
+
+export default connect(mapStateToProps)(Comments);

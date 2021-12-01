@@ -4,16 +4,21 @@ import { submitComment } from '../redux/actionCreators'
 
 function CommentForm({tweetId, submitComment}){
     const [description, setDescription] = useState("")
-
+   
     const onSubmit = (e) => {
-        e.preaventDefault()
-        const newComment = {description}
+        e.preventDefault()
+        const newComment = {description, tweet_id: tweetId} 
         submitComment(newComment, tweetId)
-        setDescription("")
+        
     }
 
-    return <form className="new_comment" onSubmit={onSubmit}>
-         <textarea type='text' value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Add a Comment..." name="description"></textarea><br/>
+    const handleChange = (e) => {
+        const newComment = e.target.value
+        setDescription(newComment)
+    }
+
+    return <form className="new_comment" onSubmit={ (e) => onSubmit(e)}>
+         <textarea type='text' value={description} onChange={handleChange} placeholder="Add a Comment..." name="description"></textarea><br/>
           <input type="submit" value="Submit" />
     </form>
 
@@ -22,6 +27,7 @@ function CommentForm({tweetId, submitComment}){
 }
 
 
-const mapStateToProps = (state) => ({tweetId: state.createdTweets.id})
+const mapStateToProps = (state) => ({tweetId: state.setTweet.id})
 
-export default connect(mapStateToProps, {submitComment}) (CommentForm);
+
+export default connect(mapStateToProps, {submitComment})(CommentForm);

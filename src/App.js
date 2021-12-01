@@ -6,6 +6,7 @@ import { autoLogin} from './redux/actionCreators'
 import { useEffect } from 'react'
 
 function App({user, autoLogin}) {
+  // debugger
  useEffect(() => localStorage.token && autoLogin(), [autoLogin]) // when a componment thats mounting once the comoponet is loaded in the virtrial  dom
   return (
    <>
@@ -13,6 +14,7 @@ function App({user, autoLogin}) {
    <Nav/>
    {user.username && user.email ?
    <Switch>
+    
      <Route path="/tweets/:id"><TweetCard/></Route>
      <Route path="/tweets"><TweeterFeed/></Route>
    </Switch> :

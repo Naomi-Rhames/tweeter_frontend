@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
  export const AllTweet = (props) => {
-    console.log(props)
-
     
     return  (
         <div className="posted_tweets">
@@ -17,6 +15,7 @@ import { Link } from 'react-router-dom'
         null
      }
      <Link to="/tweets/:id"></Link> <button value={props.id}>Comment</button>
+     <button value={props.id}>Delete Tweet</button>
         
         </div>
 
