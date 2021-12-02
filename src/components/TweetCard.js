@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchTweet, clearTweets } from '../redux/actionCreators'
 import { useEffect } from 'react'
 import { CommentForm, Comments } from '.'
-// import { CommentCard } from '.'
+
 
 function TweetCard({fetchTweet, description, image_url, clearTweets, id}){
 

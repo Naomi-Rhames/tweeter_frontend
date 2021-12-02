@@ -67,6 +67,7 @@ dispatch({type: "POST_TWEET", payload: tweets})
 }
 
 export const submitComment = (comment, tweetId) => {
+
   return dispatch => fetch(`http://127.0.0.1:3000/tweets/${tweetId}/comments`, {
   method: 'POST', // or 'PUT'
   headers: {
@@ -76,15 +77,13 @@ export const submitComment = (comment, tweetId) => {
 body: JSON.stringify(comment)
 }) 
 .then(res => res.json()) 
-.then(res => {
-  if (res.ok) {
-    res.json()
-    .then(comment => dispatch({type: "ADD_COMMENT", payload: comment}))
+.then( comment => {
+  dispatch({type: "ADD_COMMENT", payload: comment})}
   // } else {
     // res.json()
     // .then(res => alert(res.errors))
-  }
-})
+  
+)
 }
 
 
