@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
             <hr/>
      <i><p>{props.username}</p></i>
         
-       <Link to={`/tweets/${props.id}/comments`}> <p>{props.description}</p></Link>
+       <Link to={`/tweets/${props.id}`}> <p>{props.description}</p></Link>
         { props.image_url ? 
         <img src={props.image_url} alt=""></img>
         :

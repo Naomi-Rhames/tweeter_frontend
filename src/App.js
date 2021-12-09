@@ -1,4 +1,4 @@
-import { TweeterFeed, Nav, Auth, TweetCard } from './components';
+import { TweeterFeed, Nav, Auth, TweetCard, MyProfile } from './components';
 import './App.css';
 import { connect } from 'react-redux'
 import { Switch, Route} from 'react-router';
@@ -6,7 +6,7 @@ import { autoLogin} from './redux/actionCreators'
 import { useEffect } from 'react'
 
 function App({user, autoLogin}) {
-  // debugger
+
  useEffect(() => localStorage.token && autoLogin(), [autoLogin]) // when a componment thats mounting once the comoponet is loaded in the virtrial  dom
   return (
    <>
@@ -14,7 +14,7 @@ function App({user, autoLogin}) {
    <Nav/>
    {user.username && user.email ?
    <Switch>
-    
+     <Route path="/profile"><MyProfile/></Route>
      <Route path="/tweets/:id"><TweetCard/></Route>
      <Route path="/tweets"><TweeterFeed/></Route>
    </Switch> :

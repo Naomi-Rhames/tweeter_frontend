@@ -13,6 +13,23 @@ export const submitSignup = (user) => {
   // the user will be dispatched into the reducer
 }
 
+
+export const fetchUser = (id) => {
+  console.log(id)
+  return dispatch => fetch(`http://127.0.0.1:3000/user/${id}`,
+  {method: 'POST', // or 'PUT'
+  headers: {
+  'Content-Type': 'application/json',
+  'Authorization': localStorage.token
+},
+body: JSON.stringify(id),
+}) 
+.then(res => res.json())
+.then(user => dispatch({type: "FETCH_USER", payload: user}))
+}
+
+
+
 export const submitLogin = (user) => {
     return dispatch => fetch("http://127.0.0.1:3000/sessions",
     {method: 'POST', // or 'PUT'
