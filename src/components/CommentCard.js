@@ -1,8 +1,8 @@
-// import { connect } from 'react-redux'
-
-function CommentCard({description}){
+function CommentCard({ username, description}){
+ console.log(username)
     return <div className="comment">
-      <p>{description}</p>
+
+      <p> {username} says:  {description}</p>
     </div>
 
 }

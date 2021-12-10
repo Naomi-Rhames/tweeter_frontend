@@ -15,8 +15,7 @@ export const submitSignup = (user) => {
 
 
 export const fetchUser = (id) => {
-  console.log(id)
-  return dispatch => fetch(`http://127.0.0.1:3000/user/${id}`,
+  return dispatch => fetch(`http://127.0.0.1:3000/users/${id}`,
   {method: 'POST', // or 'PUT'
   headers: {
   'Content-Type': 'application/json',
@@ -84,7 +83,7 @@ dispatch({type: "POST_TWEET", payload: tweets})
 }
 
 export const submitComment = (comment, tweetId) => {
-
+console.log(comment)
   return dispatch => fetch(`http://127.0.0.1:3000/tweets/${tweetId}/comments`, {
   method: 'POST', // or 'PUT'
   headers: {
@@ -92,7 +91,9 @@ export const submitComment = (comment, tweetId) => {
   'Authorization': localStorage.token
 },
 body: JSON.stringify(comment)
+
 }) 
+
 .then(res => res.json()) 
 .then( comment => {
   dispatch({type: "ADD_COMMENT", payload: comment})}

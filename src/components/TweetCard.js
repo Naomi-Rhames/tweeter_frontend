@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { CommentForm, Comments } from '.'
 
 
-function TweetCard({fetchTweet, description, image_url, clearTweets, id}){
+function TweetCard({fetchTweet, description, image_url, clearTweets, username, id}){
 
     const routeId = useParams().id
     
@@ -17,16 +17,20 @@ function TweetCard({fetchTweet, description, image_url, clearTweets, id}){
    const loadedicon = () => <div class="loader"></div>
 
     const fetchedTweet = () => <div className ="show">
+    
+        
         <p>{description}</p>
         { image_url ? 
         <img src={image_url} alt=""></img>
         :
         null
      }
+     <i><p> posted by the user {username}</p></i>
      <br/>
      <br/>
      <CommentForm/>
      <Comments/>
+     
     </div>
 
     return id ? fetchedTweet() : loadedicon

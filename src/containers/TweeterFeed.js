@@ -9,6 +9,7 @@ class TweeterFeed extends Component {
 
    componentDidMount(){
        this.props.fetchTweets()
+       debugger
    }
   
     render(){
