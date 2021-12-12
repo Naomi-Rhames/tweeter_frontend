@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { CommentForm, Comments } from '.'
 
 
-function TweetCard({fetchTweet, description, image_url, clearTweets, username, id}){
+function TweetCard( {fetchTweet, description, image_url, clearTweets, username, id} ){
  
     const routeId = useParams().id
 
