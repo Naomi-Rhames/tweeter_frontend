@@ -17,7 +17,7 @@ function TweetForm( {addTweet, user_id}){
             <form className="new_tweet" onSubmit={onSubmit}>
                 <textarea type='text' value={description} onChange={(e) => setDescription(e.target.value)} placeholder="What's happening?" name="description"></textarea>
                 <br/>
-                <label>Add URL </label>
+                <label>Add Picture! </label>
                 <input type="text" value={imageUrl} onChange={(e) => setImage(e.target.value)} name="imageUrl" />
                 <br/>
                 <input type="submit" value="Post Tweet" />

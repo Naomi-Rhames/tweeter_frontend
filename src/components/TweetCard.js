@@ -6,9 +6,9 @@ import { CommentForm, Comments } from '.'
 
 
 function TweetCard({fetchTweet, description, image_url, clearTweets, username, id}){
-
+ 
     const routeId = useParams().id
-    
+
     useEffect(()=> {
         fetchTweet(routeId)
         return clearTweets
