@@ -34,7 +34,7 @@ Once you signed up, you should see a form where you post a tweet, a navagation a
 
 
 #Features For Future Versions
-. Like a tweets
+. Like a Tweet
 . Edit a Tweet
 . Delete a Tweet
 . More CSS
