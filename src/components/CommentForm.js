@@ -3,13 +3,13 @@ import { connect } from 'react-redux'
 import { submitComment } from '../redux/actionCreators'
 
 function CommentForm({tweetId, submitComment}){
-    const [description, setDescription] = useState("")
-   
+    const [description, setDescription] = useState("") // setting local state
+ //    key            allows us to change the vlaue of state       value
     const onSubmit = (e) => {
         e.preventDefault()
         const newComment = {description, tweet_id: tweetId} 
         submitComment(newComment, tweetId)
-        
+        setDescription("")
     }
 
     const handleChange = (e) => {

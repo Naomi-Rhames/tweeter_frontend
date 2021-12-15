@@ -3,25 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createStore, applyMiddleware, compose } from 'redux';
-import { Provider } from 'react-redux'
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux' /// <Provider> component makes the state available to any nested components 
 import { reducer } from './redux/reducer'
 import thunk from 'redux-thunk'
-import {BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router} from 'react-router-dom'
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // create store only takes two arguments so we can combine the midleware and the dev tools
-
-const store = createStore(reducer, composeEnhancers( /// store has access to state in the reducer
-applyMiddleware(thunk) /// it a promise it allows asymc method to load in our actionCreators so it allows us to wait until the prosmise is resloved from our fetch ~ Thunk
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // it's an enhancer to connect my middleware  and to use the redux dev tools extension
+const store = createStore(reducer, composeEnhancers( 
+applyMiddleware(thunk) 
 ));
+
+/// lines 13 - 16 
 
 ReactDOM.render(
   <React.StrictMode>
-     <Router><Provider store={store}><App /></Provider></Router>
+     <Router><Provider store={store}>
+       <App />
+       </Provider>
+       </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// /// Rudex is handling my global state which is stored into my index.js so that all components have access to state else each components.
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

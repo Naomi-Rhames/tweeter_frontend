@@ -77,8 +77,8 @@ export const addTweet= tweet => {
 body: JSON.stringify(tweet),
 }) 
 .then(res => res.json())
-.then(tweets => {
-dispatch({type: "POST_TWEET", payload: tweets})
+.then(tweet => {
+dispatch({type: "POST_TWEET", payload: tweet})
 })
 }
 
@@ -104,6 +104,7 @@ body: JSON.stringify(comment)
 )
 }
 
+// export const updatePost = ()
 
 export const logout = () => {
   return dispatch => {

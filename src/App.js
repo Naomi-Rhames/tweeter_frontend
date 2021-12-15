@@ -17,7 +17,7 @@ function App({user, autoLogin}) {
      <Route path="/profile"><MyProfile/></Route>
      <Route path="/tweets/:id"><TweetCard/></Route>
      <Route path="/tweets"><TweeterFeed/></Route>
-   </Switch> :
+   </Switch> : 
    <Auth/>
    }
    </>

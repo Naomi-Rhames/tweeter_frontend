@@ -19,3 +19,4 @@ const myProfile = ({username, email, bio}) => {
 const mapStateToProps = (state) => ({username: state.user.username, email: state.user.email, bio: state.user.bio})
 export default connect(mapStateToProps, {fetchUser})(myProfile)
  
+

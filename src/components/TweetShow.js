@@ -1,8 +1,7 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 
  const TweetShow = (props) => {
-    
     
     return  (
         <div>
@@ -14,6 +13,7 @@ import { Link } from 'react-router-dom'
         null
      }
         <Link to={`/tweets/${props.id}/comments`}><button value={props.id} >Comment</button></Link>
+    
         </div>
 
     )
