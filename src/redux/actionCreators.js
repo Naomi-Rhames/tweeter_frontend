@@ -9,8 +9,7 @@ export const submitSignup = (user) => {
   body: JSON.stringify(user),
 }) 
  .then(res => handleUserResponse(res, dispatch))
- // token will be saved in local storage
-  // the user will be dispatched into the reducer
+ 
 }
 
 
@@ -97,14 +96,12 @@ body: JSON.stringify(comment)
 .then(res => res.json()) 
 .then( comment => {
   dispatch({type: "ADD_COMMENT", payload: comment})}
-  // } else {
-    // res.json()
-    // .then(res => alert(res.errors))
+
   
 )
 }
 
-// export const updatePost = ()
+
 
 export const logout = () => {
   return dispatch => {

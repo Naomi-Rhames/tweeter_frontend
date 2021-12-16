@@ -3,7 +3,6 @@ import { useState } from 'react'
 import {addTweet} from '../redux/actionCreators'
 
 function TweetForm( {addTweet, user_id}){
-/// from not having a constuctor you have to use hooks
    const [description, setDescription] = useState("")
    const [imageUrl, setImageUrl] = useState("")
 

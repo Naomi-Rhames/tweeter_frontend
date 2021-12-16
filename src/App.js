@@ -7,7 +7,7 @@ import { useEffect } from 'react'
 
 function App({user, autoLogin}) {
 
- useEffect(() => localStorage.token && autoLogin(), [autoLogin]) // when a componment thats mounting once the comoponet is loaded in the virtrial  dom
+ useEffect(() => localStorage.token && autoLogin(), [autoLogin]) 
   return (
    <>
    <h1>🕊</h1>

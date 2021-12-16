@@ -20,7 +20,7 @@ const initialState = {
 export function reducer(state=initialState, action){
     switch(action.type){
         case "SET_TWEETER_USER":
-            return{...state, user: action.payload} // we are copying the current state and we just defining the user
+            return{...state, user: action.payload} 
         case "FETCH_USER":
             return{...state, user: action.payload}
         case "LOGOUT":

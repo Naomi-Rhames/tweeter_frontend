@@ -12,10 +12,10 @@ function TweetCard( {fetchTweet, description, image_url, clearTweets, username, 
 
     
 
-    useEffect(()=> { /// we use this hook to tell react that your component needs to do something after render or in other words it's the lifecycle method component did mount and this happens only when the component renders and mounts to the page
+    useEffect(()=> { 
         fetchTweet(routeId)
         return clearTweets
-    }, [fetchTweet, routeId, clearTweets]) // array of dependencies 
+    }, [fetchTweet, routeId, clearTweets]) 
 
    const loadedicon = () => <div class="loader"></div>
 

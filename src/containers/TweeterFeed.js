@@ -1,5 +1,4 @@
 import{ connect } from 'react-redux'
-// import React, { Component} from 'react';
 import  { useEffect } from 'react';
 import { fetchTweets} from '../redux/actionCreators'
 import  TweetShow  from '../components/TweetShow';
@@ -26,7 +25,7 @@ import TweetForm from '../components/TweetForm';
 
     
 }
-// {props.tweets.map(t => <TweetShow {...t}/>)}
+
 
 const mapStateToProps = (state) => ({ tweets: state.tweets})
 

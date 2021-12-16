@@ -11,7 +11,7 @@ function Auth(props){
     const [username, setUsername] = useState("")
     const [bio, setBio] = useState("")
     const [password, setPassword] = useState("")
-    const history = useHistory() ///  Provides access to the history prop in React Router
+    const history = useHistory() 
 
     const toggleSignup = () => setSignup(!signup)
 
