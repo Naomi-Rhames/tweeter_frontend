@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
         :
         null
      }
-        <Link to={`/tweets/${props.id}/comments`}><button value={props.id} >Comment</button></Link>
+        <Link to={`/tweets/${props.id}`}><button value={props.id} >Comment</button></Link>
     
         </div>
 

@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
-import { fetchUser } from '../redux/actionCreators'
+import { fetchUser} from '../redux/actionCreators'
 
 const myProfile = ({username, email, bio}) => {
+
     return <div>
         <h1>👤</h1>
        <i><p>Hello {username} Welcome to your profile!</p></i>
