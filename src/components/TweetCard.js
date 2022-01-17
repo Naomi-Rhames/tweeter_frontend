@@ -29,7 +29,6 @@ function TweetCard( {fetchTweet, description, image_url, clearTweets, username, 
         :
         null
      }
-     <button id={id}>Edit</button>
      <i><p> posted by the user {username}</p></i>
      <br/>
      <br/>
