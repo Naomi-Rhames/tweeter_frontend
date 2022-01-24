@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import { submitSignup, submitLogin } from  '../redux/actionCreators'
 import { connect } from 'react-redux' 
 import { useHistory} from 'react-router-dom'
@@ -27,20 +27,20 @@ function Auth(props){
     <form onSubmit={handleSubmit}> 
    {signup && <label>
        Email:
-         <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/><br/>
+         <input type="email" name="email" value={email} placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)}/><br/>
         </label>}<br/>
        
         <label>
         Username:
-         <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/><br/>
+         <input type="text" name="username" placeholder='Enter Username' value={username} onChange={(e) => setUsername(e.target.value)}/><br/>
         </label><br/>
        <label>
         Password:
-         <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+         <input type="password" name="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         </label>
         { signup && <p><i><label><br/>
-        Bio(tell other people about yourself):
-         <textarea type="text" name="name" value={bio} onChange={(e) => setBio(e.target.value)}/>
+        Bio:
+         <textarea type="text" name="name" placeholder='Tell people about yourself!' value={bio} onChange={(e) => setBio(e.target.value)}/>
         </label></i></p>}
         <br/>
         <input type="submit" value="Submit"/>
