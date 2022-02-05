@@ -26,7 +26,7 @@ function CommentForm({tweetId, submitComment}){
 }
 
 
-const mapStateToProps = (state) => (console.log( state))
+const mapStateToProps = (state) => ({tweetId: state.setTweet.id})
 
 
 export default connect(mapStateToProps, {submitComment})(CommentForm);
