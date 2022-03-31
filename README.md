@@ -1,6 +1,6 @@
 # README
 
-Tweeter is a simple web application that allows you to add a twwet that will render on the  page. Also you can post a comment on any specific tweet on the tweet show and you can view that allow  comment on that specific tweet.
+Tweeter is a simple web application that allows you to add a twet that will render on the  page. Also you can post a comment on any specific tweet on the tweet show and you can view that allow  comment on that specific tweet.
 
 #Installation
 The backend repo can be found at https://github.com/Naomi-Rhames/tweeter_backend .
