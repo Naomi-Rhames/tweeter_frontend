@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import { fetchUser} from '../redux/actionCreators'
 
 const myProfile = ({username, email, bio}) => {
-
     return <div>
         <h1>👤</h1>
        <i><p>Hello {username} Welcome to your profile!</p></i>
@@ -11,8 +10,6 @@ const myProfile = ({username, email, bio}) => {
         <p>Email: {email}</p>
         <p>Your Bio:</p>
         <p>{bio}</p>
-
-
     </div>
     
 

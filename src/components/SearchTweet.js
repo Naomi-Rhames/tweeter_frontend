@@ -28,8 +28,8 @@ const SearchTweet = ({tweets}) => {
                 <TweetShow  username={tweet.username} description={tweet.description} image_url={tweet.image_url} id={tweet.id} /> )
                 }
          </div>
-    )
-  }
+          )
+         }
 
 const mapStateToProps = (state) => ({tweets: state.tweets })
 

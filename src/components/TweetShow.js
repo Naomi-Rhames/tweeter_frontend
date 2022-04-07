@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
  const TweetShow = (props) => {
     
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState()
 
     return  (
         <div>

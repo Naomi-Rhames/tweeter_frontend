@@ -14,7 +14,7 @@ const initialUser = {
 const initialState = {
     tweets: [],
     setTweet: initialTweet,
-    user: initialUser,
+    user: initialUser
 }
 
 export function reducer(state=initialState, action){

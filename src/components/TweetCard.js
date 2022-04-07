@@ -20,8 +20,6 @@ function TweetCard( {fetchTweet, description, image_url, clearTweets, username, 
    const loadedicon = () => <div class="loader"></div>
 
     const fetchedTweet = () => <div className ="show">
-   
- 
         <br/>
         <p>{description}</p>
         { image_url ? 
@@ -36,9 +34,7 @@ function TweetCard( {fetchTweet, description, image_url, clearTweets, username, 
      <Comments/>
      
     </div>
-
     return id ? fetchedTweet() : loadedicon
-
 }
 
 const mapStateToProps = (state) => {

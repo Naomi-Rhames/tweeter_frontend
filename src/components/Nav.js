@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-
 import { logout } from '../redux/actionCreators'
 import { connect } from 'react-redux'
 
@@ -18,6 +17,5 @@ function Nav({logout, username}){
 }
 
 const mapStateToProps = state => ({username: state.user.username, email: state.user.email, bio: state.user.bio})
-
 
 export default connect(mapStateToProps, {logout})(Nav);
