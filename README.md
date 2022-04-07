@@ -37,7 +37,7 @@ Once you signed up, you should see a form where you post a tweet, a navagation a
 . Like a Tweet
 . Edit a Tweet
 . Delete a Tweet
-. More CSS
+. Add more CSS
 
 #Contributing
 Bug reports and pull request are welcome on Github at https://github.com/Naomi-Rhames/tweeter_frontend . This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
